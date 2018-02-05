@@ -1,0 +1,196 @@
+$color-font: #60606e;
+$color-primary: #7beec7;
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: $color-font;
+}
+
+.header {
+    text-align: center;
+    margin-top: 9rem;
+    margin-bottom: 6rem;
+}
+
+.we-are {
+    background: $color-primary;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font: 18px Arial;
+    display: inline-block;
+}
+
+.title-header {
+    font: 3rem/1 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+    text-transform: uppercase;
+    border: .5rem solid;
+    font-family: 'Montserrat', sans-serif;
+    padding: .25rem;
+    &__home {
+        padding: 1.25rem;
+        // max-width: 38rem;
+        // flex-shrink: 0;
+        // flex-grow: 
+    }
+}
+.history {
+    @media all and (min-width: 48rem) {
+        margin-top: -18.75rem;
+    }
+}
+
+.logo {
+    font: 18px/1 'Montserrat', sans-serif;
+}
+
+.header-bg {
+    background: url(../img/hero-bg-home.jpg);
+    background-size: cover;
+    // margin: 0;
+    // padding-top: 15rem;
+    // padding-bottom: 15rem;
+    @media all and (min-width: 48rem) {
+        // padding-top: 0;
+        // padding-bottom: 0;
+        height: 53rem;
+    }
+}
+
+.title {
+    display: inline-block;
+
+    font: normal 700 1.875rem/1.6 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+    text-transform: uppercase;
+    background-image: linear-gradient(to top, $color-primary, $color-primary);
+    background-repeat: no-repeat;
+    background-size: 4.25rem 1.3rem;
+    background-position: bottom left;
+    &--bg-none {
+        background: none;
+    }
+    &--form {
+        text-transform: uppercase;
+        font: normal 700 1.5rem/2.25 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+    }
+    &--inverted {
+        color: white;
+    }
+}
+.description {
+    line-height: 1.875rem;
+}
+
+.description__header {
+    width: 50%;
+}
+
+.button-main {
+    font: normal 700 0.875rem/1 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+    padding: 1.0625rem 2.5rem;
+    text-transform: uppercase;
+    border-color: $color-primary;
+    background-color: $color-primary;
+    &:hover {
+        background-color: darken($color-primary, 25%);
+        border-color: darken($color-primary, 25%);
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.1rem lighten($color-primary, 10%);
+    }
+    // for overwrite bootstrap styles and don't use !important 
+    &:not(:disabled):not(.disabled):active {
+        background-color: darken($color-primary, 50%);
+        border-color: darken($color-primary, 50%);
+    }
+    &--inverted {
+        font: normal 700 0.875rem/1 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+        padding: 1.0625rem 2.5rem;
+        text-transform: uppercase;
+        color: $color-primary;
+    }
+}
+.btn-categories > button {
+    background-color: transparent;
+    color: $color-font;
+    padding: .5rem 1.25rem;
+    text-transform: uppercase;
+    font: normal 700 0.875rem/1 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+    &:hover {
+        background-color: $color-primary;
+        color: white;
+    }
+    &:active {
+        background-color: $color-primary;
+        color: white;
+    }
+}
+
+.input-main {
+    font: normal 700 0.875rem/1 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+    padding: .9375rem 1.25rem;
+    text-transform: uppercase;
+    &:placeholder {
+        font: normal 700 0.875rem/1 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+        line-height: 10px;
+        color: lighten($color-font, 25%)
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.1rem lighten($color-primary, 10%);
+    }
+}
+.cards-container {
+    @media all and (max-width: 36rem) {
+        column-count: 2;
+    }
+    & .card {
+        @media all and (max-width: 36rem) {
+            display: inline-block;
+        }
+    }
+}
+.hero-container {
+    height: 80%;
+}
+.contact {
+    background-color: $color-primary;
+    &_form {
+        background-color: white;
+        padding: 20px;
+    }
+    &_container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+.footer {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    line-height: 1;
+}
+.footer_nav {
+    & .nav-item:not(:first-child)::before {
+        display: inline;
+        content: '•';
+    }
+    & .nav-link {
+        color: $color-font;
+        display: inline-block;
+    }
+}
+.social_item {
+    fill: $color-font;
+    height: 18px;
+    width: 18px;
+}
+.card_icon {
+    width: 2rem;
+    height: 2rem;
+    fill: $color-font;
+}
+.why_title {
+    font: normal 700 0.875rem/1 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+    text-transform: uppercase;
+}
+.why_item {
+    font-size: 0.875rem;
+}

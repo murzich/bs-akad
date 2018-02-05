@@ -1,0 +1,67 @@
+mixin whyCard(iconSrc, title, itemList)
+  .col-sm-6.col-md.col-lg-6.my-3
+    svg.card_icon
+      use(href= iconSrc)
+    h3.why_title.mt-3= title
+    ul.list-unstyled
+      each val in itemList
+        li.text-uppercase.my-2.why_item= val
+
+-
+  var whyData = [
+    {
+      'title': 'unlimited options',
+      'iconSrc': './img/svg-icons.svg#ios-infinite-outline',
+      'itemList': [
+        'Branding',
+        'Design & Copywriting',
+        'Concept development',
+        'User Experience'
+      ]
+    },
+    {
+      'title': 'design & development',
+      'iconSrc': './img/svg-icons.svg#ios-shuffle',
+      'itemList': [
+        'Information architecture',
+        'Interface design',
+        'Product Design',
+        'Integrated ad Companies'
+      ]
+    },
+    {
+      'title': 'e-commerce',
+      'iconSrc': './img/svg-icons.svg#ios-cart-outline',
+      'itemList': [
+        'Prototyping',
+        'Technical Consulting',
+        'Web applications',
+        'Quality testing'
+      ]
+    },
+    {
+      'title': 'customizable design',
+      'iconSrc': './img/svg-icons.svg#ios-settings',
+      'itemList': [
+        'Information architecture',
+        'Interface design',
+        'Product Design',
+        'Integrated ad Companiess'
+      ]
+    }
+  ]
+
+
+.container
+  .row.header
+    .col-md-8.mx-auto
+      h2.title Why choose us
+      .description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  .row
+    .col-md-6
+      .row
+        each card in whyData
+          +whyCard(card.iconSrc, card.title, card.itemList)
+    .col-md-5.offset-md-1
+      .img-overflow
+        img.card-img.rounded-0(src="./img/about_img3.jpg")

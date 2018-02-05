@@ -1,0 +1,46 @@
+- 
+  var categoryButtons = {
+    'all'             : '[class*="cat-"]',
+    'webdesign'       : '.cat-webdesign',
+    'graphic design'  : '.cat-graphic',
+    'fashion'         : '.cat-fashion',
+    'logo design'     : '.cat-logo',
+    'advertising'     : '.cat-advertising'
+  };
+  var categoryCards = {
+    './img/category-1.jpg': 'cat-webdesign',
+    './img/category-2.jpg': 'cat-graphic',
+    './img/category-3.jpg': 'cat-fashion',
+    './img/category-4.jpg': 'cat-logo',
+    './img/category-5.jpg': 'cat-webdesign',
+    './img/category-6.jpg': 'cat-advertising',
+    './img/category-7.jpg': 'cat-logo',
+    './img/category-8.jpg': 'cat-fashion',
+    './img/category-9.jpg': 'cat-graphic'
+  }
+
+mixin button(name, target)
+  button.btn.d-md-block.btn-light.rounded-0.border-0.my-md-2(type='button', data-target=target)= name
+  
+mixin card-portfolio(imgSrc, category)
+  .collapse.show(class= category)
+    .card.rounded-0.border-0
+      img.img.card-img(src= imgSrc)
+
+.container
+  .row.header
+    .col
+      h2.title.my-auto Our portfolio
+      .description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  .row.mb-3.mb-md-5
+    .col-md-3
+      h3.title.title--bg-none.d-block.text-center.text-md-left.mb-4 Choose category
+      .btn-categories.d-flex.flex-md-column.align-items-md-start.flex-wrap.justify-content-md-start.justify-content-center
+        each target, name in categoryButtons
+          +button(name, target)
+    .col-md-9.card-columns.cards-container.mt-2.mb-md-5
+      each cat, src in categoryCards
+        +card-portfolio(src, cat)
+      
+
+//-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements

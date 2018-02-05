@@ -1,0 +1,30 @@
+//-footer.pug
+- 
+  var nav = {
+    'Home':'#',
+    'About Us':'about-us.html',
+    'Services':'services.html',
+    'Portfolio':'portfolio.html',
+    'Blog':'blog.html',
+    'Contact Us':'contact-us.html'};  
+  var socialIcons = [
+    './img/svg-icons.svg#social-facebook',
+    './img/svg-icons.svg#social-twitter',
+    './img/svg-icons.svg#social-youtube',
+    './img/svg-icons.svg#social-linkedin',
+    './img/svg-icons.svg#social-pinterest',
+    './img/svg-icons.svg#social-instagram'];
+
+footer.container.pt-5
+  .row.footer
+    nav.footer_nav.col-md
+      ul.nav
+        each value, key in nav
+          li.nav-item
+            a.nav-link.px-0.mx-2(href= value)= key
+    p.col-md-auto.py-2 Created by akhouad 2016. All Rights Reserved
+  .row.social.mt-2.mb-5
+    .col-auto.ml-auto
+      each value in socialIcons
+        svg.social_item.mx-1
+          use(href= value)
