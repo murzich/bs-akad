@@ -1,7 +1,7 @@
 mixin whyCard(iconSrc, title, itemList)
   .col-sm-6.col-md.col-lg-6.my-3
     svg.card_icon
-      use(href= iconSrc)
+      use(xlink:href= iconSrc)
     h3.why_title.mt-3= title
     ul.list-unstyled
       each val in itemList

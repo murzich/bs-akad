@@ -7,20 +7,21 @@ html(lang="en")
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
     link(href='https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans', rel='stylesheet')
     link(href="css/main.min.css", rel="stylesheet")
-    
-    title AKAD
+    block title
+      title AKAD
 
   body
-    .jumbotron-fluid.header-bg
-      .container.hero-container
-        include ./blocks/_menubar
-        
-        include ./blocks/_hero-home
+    block content
+      .jumbotron-fluid.header-bg
+        .container.hero-container
+          include ./blocks/_menubar
+          
+          include ./blocks/_hero-home
 
-    include ./blocks/_home-history
-    include ./blocks/_why-us
-    include ./blocks/_portfolio
-    
+      include ./blocks/_home-history
+      include ./blocks/_why-us
+      include ./blocks/_portfolio
+      
     include ./blocks/_contact
     include ./blocks/_footer
 

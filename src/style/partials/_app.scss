@@ -34,6 +34,7 @@ body {
     }
 }
 .history {
+    margin-top: 3rem;
     @media all and (min-width: 48rem) {
         margin-top: -18.75rem;
     }
@@ -46,6 +47,7 @@ body {
 .header-bg {
     background: url(../img/hero-bg-home.jpg);
     background-size: cover;
+    // height: 30rem;
     // margin: 0;
     // padding-top: 15rem;
     // padding-bottom: 15rem;
@@ -79,7 +81,48 @@ body {
 .description {
     line-height: 1.875rem;
 }
-
+.custom-bg {
+    padding: 3.125rem 2rem;
+    background-color: lighten($color-primary, 20%);
+}
+.benefit_icon {
+    height: 1.5em;
+    width: 1.5em;
+    vertical-align: middle;
+    background-color: $color-primary;
+    fill: white;
+    display: inline-block;
+    box-sizing: content-box;
+}
+.pointers {
+    width: 10rem;
+    height: .25rem;
+    &_item {
+        display: inline-block;
+        width: 16%;
+        height: 100%;
+        margin: 1%;
+        background-color: $color-font;
+        &.pointer-active {
+            width: 36%;
+            background-color: $color-primary;
+        }
+    }
+}
+.menu-drop {
+    @media all and (max-height: 48rem) {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.5);
+        right: 15px;
+        padding: 15px;
+        z-index: 2;
+    }
+}
+.collapsing {
+    transition: none;
+    // display: none;
+    position: absolute;
+}
 .description__header {
     width: 50%;
 }
@@ -90,6 +133,7 @@ body {
     text-transform: uppercase;
     border-color: $color-primary;
     background-color: $color-primary;
+    color: white;
     &:hover {
         background-color: darken($color-primary, 25%);
         border-color: darken($color-primary, 25%);
@@ -150,6 +194,12 @@ body {
 }
 .hero-container {
     height: 80%;
+}
+.hero {
+    background-image: url('../img/hero-bg.jpg');
+    background-size: cover;
+    // TODO: change internal hero text w/ absolute positioning
+    height: 31.25rem;
 }
 .contact {
     background-color: $color-primary;

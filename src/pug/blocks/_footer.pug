@@ -1,7 +1,7 @@
 //-footer.pug
 - 
   var nav = {
-    'Home':'#',
+    'Home':'index.html',
     'About Us':'about-us.html',
     'Services':'services.html',
     'Portfolio':'portfolio.html',
@@ -27,4 +27,4 @@ footer.container.pt-5
     .col-auto.ml-auto
       each value in socialIcons
         svg.social_item.mx-1
-          use(href= value)
+          use(xlink:href= value)

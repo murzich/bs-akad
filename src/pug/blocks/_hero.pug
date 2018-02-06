@@ -1,0 +1,10 @@
+//- hero.pug
+
+mixin hero(heroTitle, heroName)
+  .jumbotron-fluid.hero
+    .container.h-100
+      include ./_menubar
+      .row.justify-content-center.align-items-center.h-75
+        .col-auto.hero_page
+          h1.title.title--bg-none.text-center= heroTitle
+          p.description.text-center.text-uppercase= 'Home / ' + heroName
