@@ -4,6 +4,127 @@ block title
   title Services
 
 block content
+  -
+    var features = [
+      'Stunning on all screens',
+      'Easy to customize',
+      'Make a difference',
+      'Imagine and create',
+      'Unlimited possibilities',
+      'Remarkable style',
+      'Captivating presentations',
+      'Make your portfolio pop',
+      'Words that matter',
+      'Satisfied clients'
+    ];
+
+  mixin listItem(innerText)
+    li
+      svg.li-bullet: use(xlink:href='./img/svg-icons.svg#android-checkbox')
+      span= innerText 
+
+  mixin featuresList(array)
+    - var n = i = array.length;
+    - var halfArray = n / 2;
+    .row
+      ul.col-6.ul-none
+        while i > (halfArray)
+          +listItem(array[n - i--])
+      ul.col-6.ul-none
+        while i > 0
+          +listItem(array[n - i--])
+
+
   include ./blocks/_hero
 
-  +hero('Services', 'Services')
+  +hero('Our Services', 'Services')
+
+  section.container.py-5
+    //- TODO: title in mixin or partial
+    header.row.my-5
+      .col.text-center
+        h2.title What we do
+        p.col-lg-8.mx-auto.description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    .row
+      .col-md-6
+        p Erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.
+        +featuresList(features)
+      .col
+        img.card-img(src='./img/services.jpg')
+
+
+  section.container.my-5
+    -
+      var services = {
+      'keep Pulse Going': './img/svg-icons.svg#ios-pulse',
+      'pass The Limits': './img/svg-icons.svg#ios-infinite-outline',
+      'great Ideas': './img/svg-icons.svg#ios-lightbulb-outline',
+      'awesome Support': './img/svg-icons.svg#ios-settings'}
+    mixin servicesItem(array)
+      each imgSrc, title in array
+        .col-md-3.col-sm-6.text-center
+          svg.title.services_item: use(xlink:href=imgSrc)
+          //- TODO: title in mixin or partial with modifier
+          h3.why_title= title
+          p.description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt .
+
+    .row
+      +servicesItem(services)
+
+  section.container.pricing.my-5
+    -
+      var pricingCards = [
+        {
+          'title': 'Basic',
+          'price': '35.99',
+          'list': [
+            'Lorem ipsum dolor sit amet',
+            'Consectetuer adipiscing elit',
+            'Sed diam nonummy',
+            'Nibh euismod tincidunt',
+            'Ut laoreet dolore',
+            'Magna aliquam erat volutpat'
+          ]
+        },
+        {
+          'title': 'Advanced',
+          'price': '55.99',
+          'list': [
+            'Lorem ipsum dolor sit amet',
+            'Consectetuer adipiscing elit',
+            'Sed diam nonummy',
+            'Nibh euismod tincidunt',
+            'Ut laoreet dolore',
+            'Magna aliquam erat volutpat'
+          ]
+        },
+        {
+          'title': 'Smart',
+          'price': '75.99',
+          'list': [
+            'Lorem ipsum dolor sit amet',
+            'Consectetuer adipiscing elit',
+            'Sed diam nonummy',
+            'Nibh euismod tincidunt',
+            'Ut laoreet dolore',
+            'Magna aliquam erat volutpat'
+          ]
+        },
+      ]
+    mixin cardItem(array)
+      .col-4.card.pricing_card.border-0.rounded-0.p-3
+        h3.card-title.title= title
+        .card-text
+          p.price= '$#{price} monthly'
+          ul
+          each listItem in array.list
+            li.card_list= listItem
+          button.btn.button-main Get started
+
+    //- TODO: title in mixin or partial
+    header.row.my-5
+      .col.text-center
+        h2.title Pricing plans
+        p.col-lg-8.mx-auto.description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    .row
+      
