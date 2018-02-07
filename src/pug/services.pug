@@ -18,8 +18,8 @@ block content
       'Satisfied clients'
     ];
 
-  mixin listItem(innerText)
-    li
+  mixin listItem(innerText, additionalClass)
+    li(class= additionalClass)
       svg.li-bullet: use(xlink:href='./img/svg-icons.svg#android-checkbox')
       span= innerText 
 
@@ -72,7 +72,7 @@ block content
       +servicesItem(services)
 
   section.container.pricing.my-5
-    -
+    - 
       var pricingCards = [
         {
           'title': 'Basic',
@@ -111,20 +111,23 @@ block content
           ]
         },
       ]
+
     mixin cardItem(array)
-      .col-4.card.pricing_card.border-0.rounded-0.p-3
-        h3.card-title.title= title
-        .card-text
-          p.price= '$#{price} monthly'
-          ul
-          each listItem in array.list
-            li.card_list= listItem
-          button.btn.button-main Get started
+      .col-auto.col-lg-4.col-md-6.mb-md-0.mb-3
+        .card.pricing_card.border-0.rounded-0.p-4
+          h3.card-title.title= array.title
+          .card-text
+            p.price.my-2 $#{array.price} monthly
+            ul.ul-none.pl-0
+              each listItem in array.list
+                +listItem(listItem, 'my-2')
+            button.btn.button-main.mt-4 Get started
 
     //- TODO: title in mixin or partial
     header.row.my-5
       .col.text-center
         h2.title Pricing plans
         p.col-lg-8.mx-auto.description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    .row
-      
+    .row.card-deck.justify-content-center
+      each data in pricingCards
+        +cardItem(data)

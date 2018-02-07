@@ -15,6 +15,7 @@ var gulp    = require('gulp'),
     rigger  = require('gulp-rigger'),
     pug     = require('gulp-pug'),
     clean   = require('gulp-clean'),
+    notify  = require('gulp-notify'),
     prefixer = require('gulp-autoprefixer');
 
 var path = {
@@ -68,6 +69,9 @@ gulp.task('html:build', function () {
 gulp.task('pug:build', function() {
     gulp.src(path.src.pug)
         .pipe(pug())
+            .on('error', notify.onError(function (error) {
+                return 'An error occurred while compiling pug.\nLook in the console for details.\n' + error;
+            }))
         .pipe(gulp.dest(path.build.html))
         .pipe(reload({stream: true}));
 });
