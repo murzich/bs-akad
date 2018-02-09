@@ -295,3 +295,49 @@ body {
 * {
     transition: box-shadow 0.1s;
 }
+
+// blog page
+
+.post {
+    
+    &_date {
+        color: white;
+        background-color: $color-primary;
+        display: inline-block;
+        padding: 0.25rem 1.5rem;
+    }
+    &_icon,
+    &_icon--comments,
+    &_icon--likes,
+    &_icon--arrow {
+        width: 2rem;
+        height: 2rem;
+        fill: $color-font;
+        vertical-align: middle;
+    }
+}
+
+.aside__title {
+    text-transform: uppercase;
+}
+.aside__tabs {
+    text-transform: uppercase;
+    font-size: .5rem;
+    border: none;
+    .nav-link {
+        border: none;
+        border-color: transparent;
+        background-color: transparent;
+        border-bottom: .125rem solid $color-primary;
+        &.active {
+            border: none;
+            border-bottom: .125rem solid darken($color-primary, 10%);
+        }
+    }
+}
+.ti-title {
+    font-size: 1.2rem;
+}
+.overflowed {
+    overflow: hidden;
+}
