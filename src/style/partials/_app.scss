@@ -43,6 +43,34 @@ body {
 .logo {
     font: 18px/1 'Montserrat', sans-serif;
 }
+.menu-icon {
+    // float: right;
+    // top: 40px;
+    text-align: start;
+    line-height: 0;
+    font-size: 0;
+    display: inline-block;
+    width: 31px;
+    height: 1px;
+    background: #60606e;
+    margin: 0;
+    position: relative;
+}
+.menu-icon::before {
+    display: inline-block;
+    content: "";
+    width: calc(100% / 2);
+    height: inherit;
+    background: inherit;
+    margin: 7px 0 6px;
+}
+.menu-icon::after {
+    display: inline-block;
+    content: "";
+    width: calc(100% * 2 / 3);
+    height: inherit;
+    background: inherit;
+}
 
 .header-bg {
     background: url(../img/hero-bg-home.jpg);
@@ -241,6 +269,10 @@ body {
     height: 18px;
     width: 18px;
 }
+.social_link {
+    font-size: .8rem;
+    vertical-align: top;
+}
 .card_icon {
     width: 2rem;
     height: 2rem;
@@ -340,4 +372,7 @@ body {
 }
 .overflowed {
     overflow: hidden;
+}
+#map {
+    min-height: 500px;
 }

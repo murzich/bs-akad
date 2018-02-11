@@ -7,3 +7,41 @@ block content
   include ./blocks/_hero
 
   +hero('Our contact', 'Contact')
+
+  .container.my-3.mt-md-5
+    .row
+      .contact-form.col-md-6
+        form
+          .row.my-3
+            .form-group.col-md-6
+              input#userName.form-control.rounded-0(type='text', placeholder='Your name')
+            .form-group.col-md-6
+              input#userEmail.form-control.rounded-0(type='email', placeholder='Your email')
+          .row.my-3
+            .form-group.col
+              input#msgObject.form-control.rounded-0(type='text', placeholder="Object")
+          .row.my-3
+            .form-group.col
+              textarea#msgText.form-control.rounded-0(name="message", rows="8", placeholder="Message")
+          .row.my-3
+            .col-auto
+              button.btn.btn-primary.rounded-0.button-main Send
+        .row.my-5
+          .col
+            h3.why_title.text-bold CONTACT INFO
+            p Lorem ipsum dolor sit amet, conse adipisicing elit. Libero incidunt quod ab mollitia quia dolorum conse.
+            address 13D, Functional apartment, Unique colony, 
+              br
+              | Agadir 86360
+              br
+              a(href="tel:+") +212 124-566-780 
+              br
+              a(href="tel:+") +212 124-566-780
+              br 
+              a(href="mailto:") email@website.com
+            include ./blocks/_social-icons
+            
+      .map#map.embed-responsive-item.col-md-6
+
+block additionalJS
+  script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm8NpbKn9WtvX940ihF4c4lyfsF0SYy04")

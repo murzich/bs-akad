@@ -1,0 +1,14 @@
+//- social-icons.pug
+-
+  var socialIcons = [
+    './img/svg-icons.svg#social-facebook',
+    './img/svg-icons.svg#social-twitter',
+    './img/svg-icons.svg#social-youtube',
+    './img/svg-icons.svg#social-linkedin',
+    './img/svg-icons.svg#social-pinterest',
+    './img/svg-icons.svg#social-instagram'];
+
+each value in socialIcons
+  a(href="#").mx-1.social_link
+    svg.social_item
+      use(xlink:href= value)

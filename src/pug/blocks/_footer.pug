@@ -4,16 +4,9 @@
     'Home':'index.html',
     'About Us':'about-us.html',
     'Services':'services.html',
-    'Portfolio':'portfolio.html',
+    'Portfolio':'index.html#portfolio',
     'Blog':'blog.html',
     'Contact Us':'contact-us.html'};  
-  var socialIcons = [
-    './img/svg-icons.svg#social-facebook',
-    './img/svg-icons.svg#social-twitter',
-    './img/svg-icons.svg#social-youtube',
-    './img/svg-icons.svg#social-linkedin',
-    './img/svg-icons.svg#social-pinterest',
-    './img/svg-icons.svg#social-instagram'];
 
 footer.container.pt-5
   .row.footer
@@ -25,6 +18,4 @@ footer.container.pt-5
     p.col-md-auto.py-2 Created by akhouad 2016. All Rights Reserved
   .row.social.mt-2.mb-5
     .col-auto.ml-auto
-      each value in socialIcons
-        svg.social_item.mx-1
-          use(xlink:href= value)
+      include ./_social-icons
