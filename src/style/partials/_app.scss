@@ -138,11 +138,14 @@ body {
     }
 }
 .menu-drop {
-    @media all and (max-height: 48rem) {
+    font: 1rem/1 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
+    text-transform: uppercase;
+    @media screen and (max-width: 47.95rem) {
         position: absolute;
         background-color: rgba(255, 255, 255, 0.5);
         right: 15px;
         padding: 15px;
+        padding-left: 2rem;
         z-index: 2;
     }
 }
