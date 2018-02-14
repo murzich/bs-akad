@@ -368,44 +368,54 @@ body {
 // blog page
 
 .post {
-    
-    &_date {
+    &__text {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    &__title {
+        @include font-secondary(1.125rem);
+        text-transform: uppercase;
+    }
+    &__info {
+        @include font-secondary(.8rem);
+        text-transform: uppercase;
+    }
+    &__date {
         color: white;
         background-color: $color-primary;
         display: inline-block;
-        padding: 0.25rem 1.5rem;
+        padding: 0.5rem 1.5rem;
+        // margin-right: 1.5rem;
     }
-    &_icon,
-    &_icon--comments,
-    &_icon--likes,
-    &_icon--arrow {
-        width: 2rem;
-        height: 2rem;
+    &__summary {
+        font-size: .875rem;
+        line-height: 1.71;
+    }
+    &__icon,
+    &__icon--comments,
+    &__icon--likes,
+    &__icon--arrow {
+        width: 1rem;
+        height: 1rem;
         fill: $color-font;
         vertical-align: middle;
     }
-}
-
-.aside__title {
-    text-transform: uppercase;
-}
-.aside__tabs {
-    text-transform: uppercase;
-    font-size: .5rem;
-    border: none;
-    .nav-link {
-        border: none;
-        border-color: transparent;
-        background-color: transparent;
-        border-bottom: .125rem solid $color-primary;
-        &.active {
-            border: none;
-            border-bottom: .125rem solid darken($color-primary, 10%);
-        }
+    &__icon--likes {
+        fill: #ea6a6a;
+    }
+    &__link {
+        @include font-secondary(.875rem);
+        text-transform: uppercase;
+        color: $color-font;
     }
 }
+
 .ti-title {
-    font-size: 1.2rem;
+    text-transform: uppercase;
+    @include font-secondary(0.875rem);
+}
+.ti-date {
+    font-size: .875rem;
 }
 .overflowed {
     overflow: hidden;
@@ -425,4 +435,53 @@ body {
 }
 #map {
     min-height: 500px;
+}
+
+.aside {
+    &__search {
+        background-color: #ececec;
+        @include font-secondary(.75rem);
+        text-transform: uppercase;
+        padding: 1rem .875rem;
+    }
+    &__title {
+        text-transform: uppercase;
+        @include font-secondary(.875rem);
+    }
+    &__tabs {
+        text-transform: uppercase;
+        font-size: .5rem;
+        @include font-secondary(.75rem);
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        .nav-item {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .nav-link {
+            overflow: hidden;
+            color: $color-font;
+            border: none;
+            border-color: transparent;
+            background-color: transparent;
+            border-bottom: .125rem solid $color-primary;
+            &.active {
+                border: none;
+                border-bottom: .125rem solid darken($color-primary, 10%);
+            }
+        }
+    }
+    &__badge {
+        text-transform: uppercase;
+        @include font-secondary(.75rem)
+        background-color: $color-primary;
+        color: $color-font;
+        padding: .5rem 1.5rem;
+        margin: 0 .25rem .25rem 0;
+    }
+}
+.cat-item {
+    font-size: .875rem;
+    line-height: 1.3;
 }

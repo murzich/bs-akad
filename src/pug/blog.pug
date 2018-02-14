@@ -8,99 +8,103 @@ block content
 
   +hero('Blog posts', 'Blog')
 
-  main.container
-    section.row.my-5
-      .col-12.col-md-8
+  main.container.my-md-5.py-md-5
+    section.row.my-5.pt-1
+      .col-12.col-md-8.pl-md-0
         //-  main content - posts
         - var i = 3;
         while i > 0
           - i--
-          .card.post.mb-5.rounded-0.border-0
-            img.card-img-top.post-img.founded-0(src='./img/blog-img-ph.jpg')
-            .card-body
-              span.post_date October, 15, 2015
-              span.post_conversation
-                svg.post_icon--comments: use(xlink:href='img/svg-icons.svg#chatbox-working')
-                span.post_comments commentsCount
-                svg.post_icon--likes: use(xlink:href='img/svg-icons.svg#ios-heart')
-                span.post_likes likesCount
-              h3.post_title THE BIG LEAGUES OUR TURN STRAIGHTNIN
-              p.post_summary Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              a(href="#") Continue reading
-                svg.post_icon--arrow: use(xlink:href='img/svg-icons.svg#arrow-right-c')
-      aside.col-12.col-md-3.offset-1
-        input(type="search" placeholder="search...").uppercase.search-field.form-control
-        
-        h3.aside__title.mt-4 Posts
-        ul.nav.nav-tabs.aside__tabs#post__tabs(role='tablist')
-          li.nav-item
-            a.nav-link.active#latest-tab(data-toggle="tab", href="#latest", role="tab", aria-controls="latest" aria-selected="true").
-              Latest
-          li.nav-item
-            a.nav-link#popular-tab(data-toggle="tab", href="#popular", role="tab", aria-controls="popular" aria-selected="false").
-              Popular
-          li.nav-item
-            a.nav-link#comments-tab(data-toggle="tab", href="#comments", role="tab", aria-controls="comments" aria-selected="false").
-              Comments
-        .tab-content#post__content
-          .tab-pane.fade.show.active#latest(role="tabpanel", aria-labelledby="latest-tab")
-            .row.py-4
-              .col-5.overflowed
-                img.image-ti(src="./img/blog-img-1.jpg", alt="")
-              .col-7
-                h4.ti-title Magna mollis ultricies
-                time(datetime="2012-10-03") 3th oct 2012
-            .row.py-4
-              .col-5.overflowed
-                img.image-ti(src="./img/blog-img-2.jpg", alt="")
-              .col-7
-                h4.ti-title Magna mollis ultricies
-                time(datetime="2012-10-03") 3th oct 2012
-            .row.py-4
-              .col-5.overflowed
-                img.image-ti(src="./img/blog-img-3.jpg", alt="")
-              .col-7
-                h4.ti-title Magna mollis ultricies
-                time(datetime="2012-10-03") 3th oct 2012
-          .tab-pane.fade#popular(role="tabpanel", aria-labelledby="popular-tab")
-            h4 Popular tab placeholder 
-            p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, perferendis iusto ducimus, ad vitae consequatur provident ipsa, magnam cumque reprehenderit quo aspernatur. Quibusdam voluptatem molestiae omnis blanditiis tempore officia. Vitae. 
-          .tab-pane.fade#comments(role="tabpanel", aria-labelledby="comments-tab")
-            h4 Comments tab placeholder 
-            p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          .card.post.mb-3.mb-md-5.rounded-0.border-0
+            img.card-img-top.post-img(src='./img/blog-img-ph.jpg').rounded-0
+            .card-body.post__text.mb-md-4
+              p.post__info.mt-3
+                span.post__date October 15, 2015
+                span.post__conversation.ml-3
+                  svg.post__icon--comments: use(xlink:href='img/svg-icons.svg#chatbox-working')
+                  span.post__comments.mr-2  {8}  
+                  svg.post__icon--likes: use(xlink:href='img/svg-icons.svg#ios-heart')
+                  span.post__likes  {12}
+              h3.post__title.mb-3 THE BIG LEAGUES OUR TURN STRAIGHTNIN
+              p.post__summary Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              a.post__link(href="#") Continue reading
+                svg.post__icon--arrow: use(xlink:href='img/svg-icons.svg#arrow-right-c')
+      aside.col-12.col-md-3.offset-md-1
+        //- form.form-inline
+          //- .row.form-group
+        input(type="search" placeholder="search...").uppercase.search-field.form-control.rounded-0.aside__search.border-0
+            //- button.btn Search
+        section.aside__posts.mt-4.pt-3
+          h3.aside__title.pt-1.mb-3 Posts
+          ul.nav.nav-tabs.aside__tabs#post__tabs(role='tablist')
+            li.nav-item.m-0.p-0
+              a.px-2.py-3.nav-link.active#latest-tab(data-toggle="tab", href="#latest", role="tab", aria-controls="latest" aria-selected="true").
+                Latest
+            li.nav-item.m-0.p-0
+              a.px-2.py-3.nav-link#popular-tab(data-toggle="tab", href="#popular", role="tab", aria-controls="popular" aria-selected="false").
+                Popular
+            li.nav-item.m-0.p-0
+              a.px-2.py-3.nav-link#comments-tab(data-toggle="tab", href="#comments", role="tab", aria-controls="comments" aria-selected="false").
+                Comments
+          .tab-content#post__content.py-4
+            .tab-pane.fade.show.active#latest(role="tabpanel", aria-labelledby="latest-tab")
+              .row.py-1
+                .col-4.overflowed
+                  img.image-ti(src="./img/blog-img-1.jpg", alt="")
+                .col-8
+                  h4.ti-title.mb-0 Magna mollis ultricies
+                  time(datetime="2012-10-03").ti-date 3th oct 2012
+              .row.py-1
+                .col-4.overflowed
+                  img.image-ti(src="./img/blog-img-2.jpg", alt="")
+                .col-8
+                  h4.ti-title.mb-0 Magna mollis ultricies
+                  time(datetime="2012-10-03").ti-date 3th oct 2012
+              .row.py-1
+                .col-4.overflowed
+                  img.image-ti(src="./img/blog-img-3.jpg", alt="")
+                .col-8
+                  h4.ti-title.mb-0 Magna mollis ultricies
+                  time(datetime="2012-10-03").ti-date 3th oct 2012
+            .tab-pane.fade#popular(role="tabpanel", aria-labelledby="popular-tab")
+              h4 Popular tab placeholder 
+              p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur, perferendis iusto ducimus, ad vitae consequatur provident ipsa, magnam cumque reprehenderit quo aspernatur. Quibusdam voluptatem molestiae omnis blanditiis tempore officia. Vitae. 
+            .tab-pane.fade#comments(role="tabpanel", aria-labelledby="comments-tab")
+              h4 Comments tab placeholder 
+              p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              p Lorem ipsum dolor sit amet consectetur, adipisicing elit.
 
-        section.mt-4
-          h3.aside__title Categories
+        section.mt-4.pb-2
+          h3.aside__title.mb-2 Categories
           ul.ul-none.pl-0
-            li.cat-item.p-2.border-bottom Business
+            li.cat-item.p-3.border-bottom Business
               span.badge.badge-light.float-right 15
-            li.cat-item.p-2.border-bottom Photography
+            li.cat-item.p-3.border-bottom Photography
               span.badge.badge-light.float-right 17
-            li.cat-item.p-2.border-bottom Journal
+            li.cat-item.p-3.border-bottom Journal
               span.badge.badge-light.float-right 22
-            li.cat-item.p-2.border-bottom Web development
+            li.cat-item.p-3.border-bottom Web development
               span.badge.badge-light.float-right 30
         section.tags.mt-4
           h3.aside__title Tags
-          a.badge.badge-primary.rounded-0.mx-1(href="#") CSS
-          a.badge.badge-primary.rounded-0.mx-1(href="#") JavaScript
-          a.badge.badge-primary.rounded-0.mx-1(href="#") jQuery
-          a.badge.badge-primary.rounded-0.mx-1(href="#") HTML5
-          a.badge.badge-primary.rounded-0.mx-1(href="#") Bootstrap
-          a.badge.badge-primary.rounded-0.mx-1(href="#") CSS
-          a.badge.badge-primary.rounded-0.mx-1(href="#") JavaScript
-          a.badge.badge-primary.rounded-0.mx-1(href="#") jQuery
+          a.badge.badge-primary.rounded-0.aside__badge(href="#") CSS
+          a.badge.badge-primary.rounded-0.aside__badge(href="#") JavaScript
+          a.badge.badge-primary.rounded-0.aside__badge(href="#") jQuery
+          a.badge.badge-primary.rounded-0.aside__badge(href="#") HTML5
+          a.badge.badge-primary.rounded-0.aside__badge(href="#") Bootstrap
+          a.badge.badge-primary.rounded-0.aside__badge(href="#") CSS
+          a.badge.badge-primary.rounded-0.aside__badge(href="#") JavaScript
+          a.badge.badge-primary.rounded-0.aside__badge(href="#") jQuery
         section.archives.mt-4
-          h3.aside__title Archives
+          h3.aside__title.mb-2 Archives
           ul.ul-none.pl-0
-            li.cat-item.p-2.border-bottom Business
+            li.cat-item.p-3.border-bottom Business
               span.badge.badge-light.float-right 15
-            li.cat-item.p-2.border-bottom Photography
+            li.cat-item.p-3.border-bottom Photography
               span.badge.badge-light.float-right 17
-            li.cat-item.p-2.border-bottom Journal
+            li.cat-item.p-3.border-bottom Journal
               span.badge.badge-light.float-right 22
-            li.cat-item.p-2.border-bottom Web development
+            li.cat-item.p-3.border-bottom Web development
               span.badge.badge-light.float-right 30
