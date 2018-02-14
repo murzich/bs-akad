@@ -1,11 +1,11 @@
 mixin whyCard(iconSrc, title, itemList)
   .col-sm-6.col-md.col-lg-6.my-3
-    svg.card_icon
+    svg.why__icon
       use(xlink:href= iconSrc)
-    h3.why_title.mt-3= title
+    h3.why__title.mt-3= title
     ul.list-unstyled
       each val in itemList
-        li.text-uppercase.my-2.why_item= val
+        li.text-uppercase.my-2.why__item= val
 
 -
   var whyData = [
@@ -52,11 +52,11 @@ mixin whyCard(iconSrc, title, itemList)
   ]
 
 
-.container
+.container.why
   .row.header
     .col-md-8.mx-auto
       h2.title Why choose us
-      .description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      p.description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
   .row
     .col-md-6
       .row

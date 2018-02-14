@@ -20,7 +20,7 @@ block content
 
   mixin listItem(innerText, additionalClass)
     li(class= additionalClass)
-      svg.li-bullet: use(xlink:href='./img/svg-icons.svg#android-checkbox')
+      svg.check-bullet: use(xlink:href='./img/svg-icons.svg#android-checkbox')
       span= innerText 
 
   mixin featuresList(array)
@@ -39,8 +39,7 @@ block content
 
   +hero('Our Services', 'Services')
 
-  section.container.py-5
-    //- TODO: title in mixin or partial
+  section.service.container.py-5
     header.row.my-5
       .col.text-center
         h2.title What we do
@@ -63,15 +62,15 @@ block content
     mixin servicesItem(array)
       each imgSrc, title in array
         .col-md-3.col-sm-6.text-center
-          svg.title.services_item: use(xlink:href=imgSrc)
+          svg.title.service__item: use(xlink:href=imgSrc)
           //- TODO: title in mixin or partial with modifier
-          h3.why_title= title
+          h3.why__title= title
           p.description Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt .
 
     .row
       +servicesItem(services)
 
-  section.container.pricing.my-5
+  section.container.price.my-5
     - 
       var pricingCards = [
         {
@@ -114,16 +113,15 @@ block content
 
     mixin cardItem(array)
       .col-auto.col-lg-4.col-md-6.mb-md-0.mb-3
-        .card.pricing_card.border-0.rounded-0.p-4
+        .card.price__card.border-0.rounded-0.p-4
           h3.card-title.title= array.title
           .card-text
-            p.price.my-2 $#{array.price} monthly
+            p.price__value.my-2 $#{array.price} monthly
             ul.ul-none.pl-0
               each listItem in array.list
                 +listItem(listItem, 'my-2')
-            button.btn.button-main.mt-4.rounded-0 Get started
+            button.btn.button.mt-4.rounded-0 Get started
 
-    //- TODO: title in mixin or partial
     header.row.my-5
       .col.text-center
         h2.title Pricing plans

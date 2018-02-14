@@ -5,82 +5,30 @@ $color-primary: #7beec7;
     font: $weight $size#{'/'}$lineHeight 'Montserrat', Helvetica, Roboto, Arial, sans-serif;
 }
 
+// common styles
 body {
     font-family: 'Open Sans', sans-serif;
     color: $color-font;
 }
+.ul-none {
+    list-style: none;
+}
+.check-bullet {
+    width: 1rem;
+    height: 1rem;
+    fill: $color-primary;
+    vertical-align: middle;
+}
 
+* {
+    transition: box-shadow 0.1s;
+}
+
+// used for layout positioning
 .header {
     text-align: center;
     margin-top: 9rem;
     margin-bottom: 6rem;
-}
-
-.we-are {
-    display: inline-block;
-    @include font-secondary(1.125rem);
-    background: $color-primary;
-    padding: 5px 10px;
-    text-transform: uppercase;
-}
-
-.title-header {
-    @include font-secondary(3rem, 1);
-    text-transform: uppercase;
-    border: .5rem solid;
-    padding: .25rem;
-    &__home {
-        padding: 1.25rem;
-    }
-}
-.history {
-    margin-top: 3rem;
-    @media all and (min-width: 48rem) {
-        margin-top: -18.75rem;
-    }
-}
-
-.logo {
-    @include font-secondary(1.125rem);
-}
-.menu-icon {
-    text-align: start;
-    line-height: 0;
-    font-size: 0;
-    display: inline-block;
-    width: 31px;
-    height: 1px;
-    background: #60606e;
-    margin: 0;
-    position: relative;
-}
-.menu-icon::before {
-    display: inline-block;
-    content: "";
-    width: calc(100% / 2);
-    height: inherit;
-    background: inherit;
-    margin: 7px 0 6px;
-}
-.menu-icon::after {
-    display: inline-block;
-    content: "";
-    width: calc(100% * 2 / 3);
-    height: inherit;
-    background: inherit;
-}
-
-.header-bg {
-    background: url(../img/hero-bg-home.jpg);
-    background-size: cover;
-    @media all and (min-width: 48rem) {
-        height: 53rem;
-    }
-}
-.form-input {
-    @include font-secondary(.75rem);
-    text-transform: uppercase;
-    padding: 1rem .875rem;
 }
 
 .title {
@@ -92,9 +40,8 @@ body {
     background-size: 4.25rem 1.3rem;
     background-position: bottom left;
     &--bg-none {
-        background: none;
         @include font-secondary(2.2rem, 1.8);
-
+        background: none;
     }
     &--form {
         @include font-secondary(1.5rem, 2.25);
@@ -106,73 +53,11 @@ body {
 }
 .description {
     line-height: 1.875rem;
-    &-hero {
+    &--hero {
         @include font-secondary(0.875rem, 1);
     }
 }
-.custom-bg {
-    padding: 3.125rem 2rem;
-    background-color: lighten($color-primary, 20%);
-}
-.benefit_icon {
-    height: 1.5em;
-    width: 1.5em;
-    vertical-align: middle;
-    background-color: $color-primary;
-    fill: white;
-    display: inline-block;
-    box-sizing: content-box;
-}
-.pointers {
-    width: 10rem;
-    height: .25rem;
-    &_item {
-        display: inline-block;
-        width: 16%;
-        height: 100%;
-        margin: 1%;
-        background-color: $color-font;
-        &.pointer-active {
-            width: 36%;
-            background-color: $color-primary;
-        }
-    }
-}
-.menu {
-    // pixel-perfect
-    margin-top: 2px;
-}
-.menu-drop {
-    @include font-secondary(1rem);
-    text-transform: uppercase;
-    @media screen and (max-width: 47.95rem) {
-        position: absolute;
-        background-color: rgba(255, 255, 255, 0.8);
-        right: 15px;
-        padding: 15px;
-        padding-left: 2rem;
-        z-index: 2;
-    }
-}
-.ul-none {
-    list-style: none;
-}
-.li-bullet {
-    width: 1rem;
-    height: 1rem;
-    fill: $color-primary;
-    vertical-align: middle;
-}
-.collapsing {
-    transition: none;
-    // display: none;
-    position: absolute;
-}
-.description__header {
-    width: 50%;
-}
-
-.button-main {
+.button {
     @include font-secondary(.875rem);
     padding: 1.0625rem 2.5rem;
     text-transform: uppercase;
@@ -199,8 +84,179 @@ body {
         padding: 1.0625rem 2.5rem;
         text-transform: uppercase;
         color: $color-primary;
+        background-color: white;
     }
 }
+
+// specific styles
+
+// menubar block
+.menu {
+    // pixel-perfect
+    margin-top: 2px;
+    &__logo {
+        @include font-secondary(1.125rem);
+    }
+    &__icon {
+        text-align: start;
+        line-height: 0;
+        font-size: 0;
+        display: inline-block;
+        width: 31px;
+        height: 1px;
+        background: #60606e;
+        margin: 0;
+        position: relative;
+        &::before, 
+        &::after {
+            display: inline-block;
+            content: '';
+            height: inherit;
+            background: inherit;
+        }
+        &::before {
+            width: calc(100% / 2);
+            margin: 7px 0 6px;
+        }
+        &::after {
+            width: calc(100% * 2 / 3);
+        }
+    }
+    &__drop {
+        @include font-secondary(1rem);
+        text-transform: uppercase;
+        @media screen and (max-width: 47.95rem) {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            right: 15px;
+            padding: 15px;
+            padding-left: 2rem;
+            z-index: 2;
+        }
+    }
+}
+.collapsing {
+    transition: none;
+    // display: none;
+    position: absolute;
+}
+
+// hero block
+.hero {
+    &-container {
+        height: 80%;
+    }
+    background-image: url('../img/hero-bg.jpg');
+    background-size: cover;
+    height: 31.25rem;
+}
+
+// contact-footer block
+.contact {
+    background-color: $color-primary;
+    &__form {
+        background-color: white;
+        padding: 20px;
+    }
+    &__container {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+.input-main {
+    @include font-secondary(0.875rem);
+    padding: .9375rem 1.25rem;
+    text-transform: uppercase;
+    &:placeholder {
+        @include font-secondary(0.875rem);
+        // line-height: 10px;
+        color: lighten($color-font, 25%)
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.1rem lighten($color-primary, 10%);
+    }
+}
+
+// footer block
+.footer {
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    line-height: 1;
+    &_nav {
+        & .nav-item:not(:first-child)::before {
+            display: inline;
+            content: '•';
+        }
+        & .nav-link {
+            color: $color-font;
+            display: inline-block;
+        }
+    }
+}
+.social {
+    &_item {
+        fill: $color-font;
+        height: 18px;
+        width: 18px;
+    }
+    &_link {
+        font-size: .8rem;
+        vertical-align: top;
+    }
+}
+
+// hero-home block
+.home {
+    &__bg {
+        background: url(../img/hero-bg-home.jpg);
+        background-size: cover;
+        @media all and (min-width: 48rem) {
+            height: 53rem;
+        }
+    }
+    &__superscription {
+        display: inline-block;
+        @include font-secondary(1.125rem);
+        background: $color-primary;
+        padding: 5px 10px;
+        text-transform: uppercase;
+    }
+    &__title {
+        @include font-secondary(3rem, 1);
+        text-transform: uppercase;
+        border: .5rem solid;
+        padding: 1.25rem;
+    }
+    &__description {
+        line-height: 1.5;
+    }
+}
+
+// history block
+.history {
+    margin-top: 3rem;
+    @media all and (min-width: 48rem) {
+        margin-top: -18.75rem;
+    }
+}
+
+// why us block
+.why {
+    &__icon {
+        width: 2rem;
+        height: 2rem;
+        fill: $color-font;
+    }
+    &__title {
+        @include font-secondary(0.875rem);
+        text-transform: uppercase;
+    }
+    &__item {
+        font-size: 0.875rem;
+    }
+}
+
+// portfolio block
 .btn-categories > button {
     @include font-secondary(0.875rem);
     background-color: transparent;
@@ -222,20 +278,6 @@ body {
         color: white;
     }
 }
-
-.input-main {
-    @include font-secondary(0.875rem);
-    padding: .9375rem 1.25rem;
-    text-transform: uppercase;
-    &:placeholder {
-        @include font-secondary(0.875rem);
-        line-height: 10px;
-        color: lighten($color-font, 25%)
-    }
-    &:focus {
-        box-shadow: 0 0 0 0.1rem lighten($color-primary, 10%);
-    }
-}
 .cards-container {
     @media all and (max-width: 36rem) {
         column-count: 2;
@@ -244,7 +286,19 @@ body {
         @media all and (max-width: 36rem) {
             display: inline-block;
         }
+    }
+}
 
+// about-us page
+.benefit {
+    &__icon {
+        height: 1.5em;
+        width: 1.5em;
+        vertical-align: middle;
+        background-color: $color-primary;
+        fill: white;
+        display: inline-block;
+        box-sizing: content-box;
     }
 }
 .team {
@@ -256,6 +310,11 @@ body {
         object-fit: cover;
     }
 }
+// only once on the about-us page
+.custom-bg {
+    padding: 3.125rem 2rem;
+    background-color: lighten($color-primary, 20%);
+}
 .logo-works {
     &__card {
         height: 100%;
@@ -265,108 +324,67 @@ body {
         object-fit: contain;
     }
 }
+.pointers {
+    width: 10rem;
+    height: .25rem;
+    &_item {
+        display: inline-block;
+        width: 16%;
+        height: 100%;
+        margin: 1%;
+        background-color: $color-font;
+        &.pointer-active {
+            width: 36%;
+            background-color: $color-primary;
+        }
+    }
+}
 
-.hero-container {
-    height: 80%;
-}
-.hero {
-    background-image: url('../img/hero-bg.jpg');
-    background-size: cover;
-    // TODO: change internal hero text w/ absolute positioning
-    height: 31.25rem;
-}
-.contact {
-    background-color: $color-primary;
-    &_form {
-        background-color: white;
-        padding: 20px;
-    }
-    &_container {
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-}
-.footer {
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    line-height: 1;
-    &_nav {
-        & .nav-item:not(:first-child)::before {
-            display: inline;
-            content: '•';
-        }
-        & .nav-link {
-            color: $color-font;
-            display: inline-block;
-        }
-    }
-}
-.social_item {
-    fill: $color-font;
-    height: 18px;
-    width: 18px;
-}
-.social_link {
-    font-size: .8rem;
-    vertical-align: top;
-}
-.card_icon {
-    width: 2rem;
-    height: 2rem;
-    fill: $color-font;
-}
-.why_title {
-    @include font-secondary(0.875rem);
-    text-transform: uppercase;
-}
-.why_item {
-    font-size: 0.875rem;
-}
-.services_item {
-    width: 4rem;
-    height: 4rem;
-    background-size: 2.5rem 1.3rem;
-}
-.pricing_card {
-    &:hover {
-        box-shadow: 0 0 1rem .5rem lighten($color-primary, 10%);
-    }
-    &::before,
-    &::after {
-        content: '';
-        display: block;
-        position: absolute;
-        right: 0;
-        top: 0;
-        box-sizing: border-box;
-    }
-    &::before {
-        background-color:  $color-primary;
-        height: 0.375rem;
-        width: 100%;
-    }
-    &::after {
-        width: 1rem;
-        height: 1rem;
-        border: 1rem solid black;
-        border-color: $color-primary transparent;
-        border-right: none;
-        border-bottom: none;
-      
+// services page
+.service {
+    &__item {
+        width: 4rem;
+        height: 4rem;
+        background-size: 2.5rem 1.3rem;
     }
 }
 .price {
-    color: white;
-    background-color: $color-primary;
-    display: inline-block;
-    padding: 0.25rem 1.5rem;
-}
-* {
-    transition: box-shadow 0.1s;
+    &__card {
+        &:hover {
+            box-shadow: 0 0 1rem .5rem lighten($color-primary, 10%);
+        }
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            box-sizing: border-box;
+        }
+        &::before {
+            background-color:  $color-primary;
+            height: 0.375rem;
+            width: 100%;
+        }
+        &::after {
+            width: 1rem;
+            height: 1rem;
+            border: 1rem solid black;
+            border-color: $color-primary transparent;
+            border-right: none;
+            border-bottom: none;
+        }
+    }
+    &__value {
+        color: white;
+        background-color: $color-primary;
+        display: inline-block;
+        padding: 0.25rem 1.5rem;
+    }
 }
 
 // blog page
-
 .post {
     &__text {
         padding-left: 0;
@@ -409,34 +427,6 @@ body {
         color: $color-font;
     }
 }
-
-.ti-title {
-    text-transform: uppercase;
-    @include font-secondary(0.875rem);
-}
-.ti-date {
-    font-size: .875rem;
-}
-.overflowed {
-    overflow: hidden;
-}
-.address{
-    &__title {
-        @include font-secondary(1.1rem);
-        text-transform: uppercase;
-    }
-    &__description,
-    &__post {
-        line-height: 1.8;
-    }
-    &__link {
-        color: $color-font;
-    }
-}
-#map {
-    min-height: 500px;
-}
-
 .aside {
     &__search {
         background-color: #ececec;
@@ -474,14 +464,55 @@ body {
     }
     &__badge {
         text-transform: uppercase;
-        @include font-secondary(.75rem)
+        @include font-secondary(.75rem);
         background-color: $color-primary;
         color: $color-font;
         padding: .5rem 1.5rem;
         margin: 0 .25rem .25rem 0;
     }
+    &__category {
+        font-size: .875rem;
+        line-height: 1.3;
+    }
 }
-.cat-item {
+// tab content styling
+.ti-title {
+    text-transform: uppercase;
+    @include font-secondary(0.875rem);
+}
+.ti-date {
     font-size: .875rem;
-    line-height: 1.3;
+}
+.overflowed {
+    overflow: hidden;
+}
+
+// contact-us page
+.form-input {
+    @include font-secondary(.75rem);
+    text-transform: uppercase;
+    padding: 1rem .875rem;
+    &:placeholder {
+        @include font-secondary(0.875rem);
+        color: lighten($color-font, 25%)
+    }
+    &:focus {
+        box-shadow: 0 0 0 0.1rem lighten($color-primary, 10%);
+    }
+}
+.address{
+    &__title {
+        @include font-secondary(1.1rem);
+        text-transform: uppercase;
+    }
+    &__description,
+    &__post {
+        line-height: 1.8;
+    }
+    &__link {
+        color: $color-font;
+    }
+}
+#map {
+    min-height: 500px;
 }
