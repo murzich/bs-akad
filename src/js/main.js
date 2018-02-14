@@ -1,5 +1,33 @@
 // main.js
 
+// filter category
+;(function() {
+
+  var $buttonSet = $('.btn-categories');
+  var $buttons = $buttonSet.find( 'button' );
+  var $container = $('.cards-container .collapse');
+  $buttonSet.click( 'button', function() {
+    console.log( event.target, $container );
+    var $target = $( event.target );
+    if ( $target.data( 'target' ) == '[class*="cat-"]' ) {
+      $container.addClass( 'show' );
+      $target.addClass( 'active' );
+    } if ( $target.data( 'target' ) ) {
+      $container.addClass('show')
+        .not($target.data('target')).removeClass('show');
+
+      $buttons.not($target).removeClass('active');
+      $target.addClass('active');
+    }
+
+    
+  });
+
+
+})(jQuery());
+
+
+// TODO: next should appears only on the contact-us page 
 ;(function() {
 
 var map = new google.maps.Map(document.getElementById('map'), {
@@ -26,13 +54,3 @@ var markerBeetroot = new google.maps.Marker({
 });
 
 })();
-
-
-
-// var map;
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: -34.397, lng: 150.644},
-//     zoom: 8
-//   });
-// }

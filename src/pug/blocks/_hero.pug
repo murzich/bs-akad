@@ -1,10 +1,10 @@
 //- hero.pug
 
 mixin hero(heroTitle, heroName)
-  .jumbotron-fluid.hero
-    .container.h-100
+  .jumbotron-fluid.hero.p-4
+    .container.h-100.px-0
       include ./_menubar
-      .row.justify-content-center.align-items-center.h-75
+      .row.justify-content-center.align-items-center.h-75.mt-5.pt-3
         .col-auto.hero_page
           h1.title.title--bg-none.text-center= heroTitle
-          p.description.text-center.text-uppercase= 'Home / ' + heroName
+          p.description-hero.text-center.text-uppercase= 'Home / ' + heroName

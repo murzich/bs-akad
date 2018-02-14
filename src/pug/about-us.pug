@@ -60,7 +60,7 @@ block content
                 use(xlink:href= img)
               |  #{title}
             p Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In eleifend suscipit enim, eu commodo neque molestie vitae.
-    section.py-5
+    section.team.py-5
       header.row.my-5
         .col.text-center
           h2.title The dream team
@@ -68,8 +68,8 @@ block content
       .row
         each img in faces
           .col-lg-3.col-md-4.col-sm-6.mb-4
-            .card.border-0.rounded-0
-              img.card-img.rounded-0(src= img)
+            .team__card.card.border-0.rounded-0
+              img.team__img.card-img.rounded-0(src= img)
       footer.row.custom-bg.align-items-center
         .col.font-italic
           | Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
@@ -80,7 +80,7 @@ block content
         .col-md-6.text-center.mb-5
           div: img.rounded-circle(src="./img/roundface.png")
           p.my-3 Quisque iaculis lorem vestibulum eros vehicula, non congue elit dictum. Donec mollis aliquet lorem, eu porttitor sapien semper in. Duis ac erat luctus, gravida lectus sit amet, consectetur orci. Suspendisse libero mauris.
-          a(href='#').btn.rounded-0.button-main John Doe
+          button(href='#').btn.rounded-0.button-main John Doe
           .pointers.mx-auto
             - for (var x = 0; x < 4; x++)
               if x == 0
@@ -88,10 +88,10 @@ block content
               else
                 a.pointers_item
         .col-md-6
-          .row.align-items-center.align-content-between.h-100
+          .logo-works.row.card-deck
             each src in products
-              .col-4
-                .card.rounded-0
-                  img.rounded-0(src= src)
+              .col-4.px-0.mb-4
+                .logo-works__card.card.rounded-0.p-2
+                  img.logo-works__img.rounded-0(src= src)
 
 

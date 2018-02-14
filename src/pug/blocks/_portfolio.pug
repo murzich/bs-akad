@@ -20,7 +20,10 @@
   }
 
 mixin button(name, target)
-  button.btn.d-md-block.btn-light.rounded-0.border-0.my-md-2(type='button', data-target=target)= name
+  if name == 'all'
+    button.btn.d-md-block.btn-light.rounded-0.border-0.my-md-2.active(type='button', data-target=target)= name
+  else
+    button.btn.d-md-block.btn-light.rounded-0.border-0.my-md-2(type='button', data-target=target)= name
   
 mixin card-portfolio(imgSrc, category)
   .collapse.show(class= category)
